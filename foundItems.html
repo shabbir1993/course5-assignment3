@@ -1,0 +1,18 @@
+<ul class="list-group">
+  <li ng-if="$ctrl.items.length == 0" class="list-group-item">
+    <strong>Nothing found!</strong>
+  </li>
+  <li ng-if="$ctrl.items.length >= 1" class="list-group-item">
+    <span class="badge">{{$ctrl.items.length}}</span>
+    <strong>Items containing: {{$ctrl.search}}</strong>
+  </li>
+  <li ng-repeat="item in $ctrl.items" class="list-group-item">
+    <div>
+      <strong>{{item.name}}</strong> ({{item.short_name}})
+      <p>{{item.description}}</p>
+      <button ng-click="$ctrl.onRemove({index: $index})">
+        Don't want this one!
+      </button>
+    </div>
+  </li>
+</ul>
